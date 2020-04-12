@@ -111,11 +111,11 @@ SOCIALACCOUNT_PROVIDERS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "evecakes",
-        'USER': "saif",
-        'PASSWORD': 'brick',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        # 'NAME': "evecakes",
+        # 'USER': "saif",
+        # 'PASSWORD': 'brick',
+        # 'HOST': '127.0.0.1',
+        # 'PORT': '5432',
     }
 }
 

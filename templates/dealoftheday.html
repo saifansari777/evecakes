@@ -1,3 +1,4 @@
+{% if doftd %}
 {% if doftd.item_image %}
 <section class="ftco-section img doftd" style="background-image: url({{ doftd.item_image.url }});background-color:darkgrey;background-blend-mode: multiply;">
   {% else %}
@@ -52,3 +53,4 @@
 
 setInterval(function() { makeTimer(); }, 1000);
 </script>
+{% endif %}

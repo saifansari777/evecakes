@@ -51,7 +51,7 @@ class Cake(models.Model):
 
 	last_updated = models.DateTimeField(auto_now_add = True)
 
-	slug = models.SlugField(default="cake")
+	slug = models.SlugField()
 
 	def __str__(self):
 		return f'{self.name} {self.weight}'

@@ -4,6 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+django-populate = "*"
 
 [packages]
 psycopg2 = "*"
@@ -14,6 +15,7 @@ django-crispy-forms = "*"
 django-bootstrap4 = "*"
 gunicorn = "*"
 django-heroku = "*"
+sorl-thumbnail = "*"
 
 [requires]
 python_version = "3.7"

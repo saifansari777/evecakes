@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
-# SECRET_KEY ='2097ad34337f2d24da45aa90f33714dba2ed9d11db294417'
+SECRET_KEY ='2097ad34337f2d24da45aa90f33714dba2ed9d11db294417'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['evecakes.herokuapp.com']
 
 INSTALLED_APPS = [
     'core',
+    'cart',
     'django.contrib.sites',
     'allauth',
     'allauth.account',

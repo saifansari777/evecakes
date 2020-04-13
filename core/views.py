@@ -17,9 +17,15 @@ def index(request):
 
 
 def banner(request):
-	banner_image = BannerImage.objects.all()[0]
-	dealoftheday = DealOfTheDay.objects.all()[0]
-
+	if BannerImage.objects.all()[0].exists():
+		banner_image = BannerImage.objects.all()[0]
+	else:
+		banner_image = {}
+	if DealOfTheDay.objects.all()[0].exists():
+		dealoftheday = DealOfTheDay.objects.all()[0]
+	else:
+		dealoftheday = {}
+	
 	context = {
 				"banner_image": banner_image,
 				"doftd": dealoftheday,

@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from core.models import Cake
 # Create your models here.
+
 class OrderItem(models.Model):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 

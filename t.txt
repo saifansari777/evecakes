@@ -1,0 +1,10 @@
+ discount = models.ForeignKey(DiscountList, on_delete=models.CASCADE, default=0, blank=True, null=True)
+# if self.discounted:
+		# 	return self.price*(self.discount/100)
+		# else:
+
+
+
+ {% if doftd.item_image %}
+  <section class="ftco-section img doftd" style="background-image: url({{ doftd.item_image.url }});background-color:darkgrey;background-blend-mode: multiply;">
+      {% else %}

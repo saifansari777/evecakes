@@ -1,9 +1,9 @@
 {% if doftd %}
-{% if doftd.item_image %}
-<section class="ftco-section img doftd" style="background-image: url({{ doftd.item_image.url }});background-color:darkgrey;background-blend-mode: multiply;">
-  {% else %}
-  <section class="ftco-section img" style="background-image: url({{ doftd.cake.image.url }});background-color:darkgrey;background-blend-mode: multiply;">
-  {% endif %}
+{% if doftd.is_valid %}
+   {% if doftd.is_image_uploaded %}<section class="ftco-section img doftd" style="background-image: url({{ doftd.item_image.url }});background-color:darkgrey;background-blend-mode: multiply;">
+    {% else %}
+    <section class="ftco-section img" style="background-image: url({{ doftd.cake.image.url }});background-color:darkgrey;background-blend-mode: multiply;">
+      {% endif %}
     	<div class="container">
 				<div class="row justify-content-end">
           <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
@@ -28,7 +28,6 @@
     var endTime = new Date({{ doftd.durationofdeal }});     
     endTime = (Date.parse(endTime) / 1000);
 
-    console.log(endTime);
 
     var now = new Date();
     now = (Date.parse(now) / 1000);
@@ -53,4 +52,5 @@
 
 setInterval(function() { makeTimer(); }, 1000);
 </script>
+{% endif %}
 {% endif %}

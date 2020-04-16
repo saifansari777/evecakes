@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 SECRET_KEY ='2097ad34337f2d24da45aa90f33714dba2ed9d11db294417'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -46,10 +46,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user',
     'crispy_forms',
+    'whitenoise',
 
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -113,11 +115,11 @@ SOCIALACCOUNT_PROVIDERS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': "evecakes",
-        # 'USER': "saif",
-        # 'PASSWORD': 'brick',
-        # 'HOST': '127.0.0.1',
-        # 'PORT': '5432',
+        'NAME': "evecakes",
+        'USER': "saif",
+        'PASSWORD': 'brick',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -157,6 +159,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

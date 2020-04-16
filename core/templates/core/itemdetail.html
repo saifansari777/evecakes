@@ -1,5 +1,6 @@
 {% extends 'basesimple.html' %}
-{% block content %}
+{% block title %}{{ object.name }} {% endblock %}
+{% block main_content %}
 
 <!-- details -->
     <section class="ftco-section">
@@ -26,7 +27,7 @@
 								<a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Sold</span></a>
 							</p>
 						</div>
-    				<p class="price"><span>₹{{ object.price }}</span></p>
+    				<p class="price"><span>₹{{ object.get_real_price  }}</span></p>
     				<p>{{ object.description }}
 						</p>
 						<div class="row mt-4">
@@ -62,7 +63,7 @@
 	          		<p style="color: #000;">{{ object.weight }}{{ object.weight_unit }}</p>
 	          	</div>
           	</div>
-          	<p><a href="{{ cake.get_add_to_cart_url }}" class="btn btn-black py-3 px-5">Add to Cart</a></p>
+          	<p><a href="{{ object.get_add_to_cart_url }}" class="btn btn-black py-3 px-5">Add to Cart</a></p>
     			</div>
     		</div>
     	</div>

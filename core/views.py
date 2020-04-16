@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Cake, BannerImage, DealOfTheDay
+from .models import Item, BannerImage, DealOfTheDay, ItemCategory
 from django.views.generic import ListView, DetailView
 # Create your views here.
 
@@ -17,11 +17,11 @@ def index(request):
 
 
 def banner(request):
-	if BannerImage.objects.all()[0].exists():
+	if BannerImage.objects.all()[0]:
 		banner_image = BannerImage.objects.all()[0]
 	else:
 		banner_image = {}
-	if DealOfTheDay.objects.all()[0].exists():
+	if DealOfTheDay.objects.all()[0]:
 		dealoftheday = DealOfTheDay.objects.all()[0]
 	else:
 		dealoftheday = {}
@@ -33,13 +33,21 @@ def banner(request):
 	return render(request, 'core/trash.html', context)
 
 
+class ItemList(ListView):
+	model = Item
+	paginate_by =16
+	template_name = 'core/itemlist.html'
 
 
-class CakeList(ListView):
-    model = Cake
-    template_name = 'core/cakelist.html'
+	def get_context_data(self,**kwargs):
+		context = super(ItemList,self).get_context_data(**kwargs)
+		if ItemCategory.objects.all().count() > 4:
+			context['item_category'] = ItemCategory.objects.all()[:4]
+			context['item_category_extra'] = ItemCategory.objects.all()[4:]
+		else:
+			context['item_category'] = ItemCategory.objects.all()
+		return context
 
-
-class CakeDetail(DetailView):
-    model = Cake
-    template_name = 'core/cakedetail.html'
+class ItemDetail(DetailView):
+	model = Item
+	template_name = 'core/itemdetail.html'
